@@ -25,13 +25,7 @@ jobs:
         run: npx playwright install chrome
 
       - name: set baseURL
-        run: set URL=${{ secrets.URL }}
-
-      - name: export URL
-        run: export URL
-        
-      - name: echo URL
-        run: printenv URL 
+        run: export URL="${{ secrets.URL }}"
 
       - name: Run tests
         run: npx playwright test
