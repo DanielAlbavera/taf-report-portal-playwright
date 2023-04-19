@@ -4,7 +4,7 @@ export const env = process.env.PORTAL_ENV  || 'test';
 
 dotenv.config({ path: `.env.${env}` });
 
-export const URL = process.env.URL;
+export const URL = process.env.URL || 'URL NOT PROVIDED';
 
 export const CREDENTIALS = {
 
