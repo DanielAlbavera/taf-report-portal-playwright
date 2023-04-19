@@ -1,0 +1,24 @@
+{
+  "name": "taf-report-portal-playwright",
+  "version": "1.0.0",
+  "description": "Test Automation Framework for Automated Testing Global Mentoring Program - Advanced",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielAlbavera/taf-report-portal-playwright.git"
+  },
+  "keywords": [],
+  "author": "Daniel Albavera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielAlbavera/taf-report-portal-playwright/issues"
+  },
+  "homepage": "https://github.com/DanielAlbavera/taf-report-portal-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.32.2",
+    "dotenv": "^16.0.3",
+    "winston": "^3.8.2"
+  }
+}
