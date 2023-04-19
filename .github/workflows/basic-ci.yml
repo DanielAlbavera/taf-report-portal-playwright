@@ -9,7 +9,9 @@ jobs:
   tests_e2e:
     name: Run end-to-end tests
     runs-on: ubuntu-latest
-    environment: test
+    env:
+      URL: ${{ secrets.URL }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -24,8 +26,8 @@ jobs:
       - name: install Chrome
         run: npx playwright install chrome
 
-      - name: set baseURL
-        run: export URL="${{ secrets.URL }}"
+      - name: echo baseURL
+        run: echo $URL
 
       - name: Run tests
         run: npx playwright test
