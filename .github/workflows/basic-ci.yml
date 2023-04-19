@@ -26,8 +26,5 @@ jobs:
       - name: install Chrome
         run: npx playwright install chrome
 
-      - name: echo baseURL
-        run: echo $URL
-
       - name: Run tests
         run: npx playwright test
