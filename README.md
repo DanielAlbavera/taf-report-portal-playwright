@@ -16,7 +16,7 @@ Installing Dependencies
 
 `npm install`
 
-create the .env file ".env${YOUR_ENV}" following the .env-EXAMPLE
+create the .env file ".env.${YOUR_ENV}" following the .env-EXAMPLE
 
 Running the tests:
 
