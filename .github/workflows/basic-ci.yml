@@ -26,9 +26,12 @@ jobs:
 
       - name: set baseURL
         run: set URL=${{ secrets.URL }}
+
+      - name: export URL
+        run: export URL
         
       - name: echo URL
-        run: echo $URL 
+        run: printenv URL 
 
       - name: Run tests
         run: npx playwright test
