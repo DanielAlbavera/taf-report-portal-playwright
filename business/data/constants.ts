@@ -8,8 +8,7 @@ dotenv.config({ path: `./.env.${env}` });
 
 export const URLS = {
     LOGIN: process.env.LOGIN_URL || 'LOGIN URL NOT PROVIDED',
-    PORTAL: process.env.PORTAL_URL || 'PORTAL URL NOT PROVIDED',
-    LAUNCHES: process.env.LAUNCHES_URL || 'LAUNCHES URL NOT PROVIDED'
+    PORTAL: process.env.PORTAL_URL || 'PORTAL URL NOT PROVIDED'
 }
 
 export const CREDENTIALS = {

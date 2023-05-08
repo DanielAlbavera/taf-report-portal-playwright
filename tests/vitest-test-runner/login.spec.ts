@@ -13,16 +13,14 @@ describe('Login Validations', () => {
 
     beforeAll( async () => {
         logger.info(`Testing on [${env}] environment`);
+        browser = await chromium.launch();
+        context = await browser.newContext();
     });
 
     beforeEach( async () => {
-        browser = await chromium.launch();
-        context = await browser.newContext();
         page = await context.newPage();
         loginPage = new LoginPage(page);
         await loginPage.navigateToURL(URLS.LOGIN);
-        logger.info('Waiting to page to be loaded');
-        await page.waitForLoadState('load');
     });
 
     afterEach( async () => {
@@ -31,6 +29,8 @@ describe('Login Validations', () => {
     });
 
     afterAll( async () => {
+        await context.close();
+        await browser.close();
         logger.info(`Tests finalized`);
     });
 

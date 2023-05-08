@@ -1,4 +1,4 @@
-import { test, expect, BrowserContext, Page } from '@playwright/test';
+import { test, expect, BrowserContext, Page, Locator } from '@playwright/test';
 import { LaunchPage } from '../../business/pages/launch.page';
 import { SideBar } from '../../business/pages/components/common/sidebar.component';
 import { LaunchComponent } from '../../business/pages/components/launch.component';
@@ -16,27 +16,28 @@ test.describe.parallel('Launch Page Validations', () => {
     let launchPage: LaunchPage;
     let sidebar: SideBar;
 
-    test.beforeAll( async () => {
+    let launches: Locator[];
+
+    test.beforeAll( async ({browser}) => {
         logger.info(`Testing on [${env}] envitonment`);
-      });
-    
-      test.beforeEach( async ({ browser }) => {
         context = await browser.newContext({
           //By Terminal: './auth.json'
           //By Test Extension: './../auth.json'
             storageState: './auth.json'
         });
+      });
+    
+      test.beforeEach( async () => {
         page = await context.newPage();
 
         loginPage = new LoginPage(page);
         launchPage = new LaunchPage(page);
-        //await loginPage.navigateToURL('https://reportportal.epam.com/ui/#daniel_albavera_personal/dashboard');
-        //await loginPage.navigateToURL(URLS.PORTAL);
         await loginPage.navigateToURL(URLS.PORTAL);
         sidebar = new SideBar(page);
         await sidebar.launchButton.click();
         await page.waitForLoadState('load', { timeout: 10000 });
         await launchPage.launches.first().waitFor();
+        launches = await launchPage.launches.all();
       });
     
       test.afterEach( async () => {
@@ -45,6 +46,7 @@ test.describe.parallel('Launch Page Validations', () => {
       });
     
       test.afterAll( async () => {
+        await context.close();
         logger.info(`Tests finalized`);
       });
 
@@ -52,7 +54,6 @@ test.describe.parallel('Launch Page Validations', () => {
     for (let index = 0; index < launches_data.length; index++) {
       
       test(`Validate Launch Name #${index+1}`, async () => {
-        const launches = await launchPage.launches.all();
         let launch = new LaunchComponent(page, launches[index]);
         let launchDataSet = launches_data[index];
         let name = launch.name;
@@ -63,7 +64,6 @@ test.describe.parallel('Launch Page Validations', () => {
       });
 
       test(`Validate Launch details #${index+1}`, async () => {
-        const launches = await launchPage.launches.all();
         let launch = new LaunchComponent(page, launches[index]);
         let launchDataSet = launches_data[index];
         let qg = launch.qualityGateLabel;
@@ -84,7 +84,6 @@ test.describe.parallel('Launch Page Validations', () => {
       });
 
       test(`Validate Launch Total Execution Results #${index+1}`, async () => {
-        const launches = await launchPage.launches.all();
         let launch = new LaunchComponent(page, launches[index]);
         let resultsDataSet: [] = launches_data[index]['results'];
         let totalTests = await launch.totalTestsLabel.textContent();

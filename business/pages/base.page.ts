@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { logger } from '../../utilities/logger';
 
 export abstract class BasePage {
@@ -34,6 +34,16 @@ export abstract class BasePage {
         const title = await this.page.title();
         logger.info(`title is: ${title}`);
         return title;
+    }
+
+    async waitForPageToBeLoaded() {
+        logger.info(`waiting for Page to be Loaded`);
+        await this.page.waitForLoadState('load', { timeout: 5000 });
+    }
+
+    async waitForLocator(locator: Locator) {
+        logger.info(`waiting for Locator to be Visible`);
+        await locator.waitFor({ state: 'visible', timeout: 5000 });
     }
 
 }
