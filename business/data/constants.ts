@@ -2,9 +2,15 @@ import dotenv from 'dotenv'
 
 export const env = process.env.PORTAL_ENV  || 'test';
 
-dotenv.config({ path: `.env.${env}` });
+//By Terminal `./.env.${env}`
+//By Test Extension `../.env.${env}`
+dotenv.config({ path: `./.env.${env}` });
 
-export const URL = process.env.URL || 'URL NOT PROVIDED';
+export const URLS = {
+    LOGIN: process.env.LOGIN_URL || 'LOGIN URL NOT PROVIDED',
+    PORTAL: process.env.PORTAL_URL || 'PORTAL URL NOT PROVIDED',
+    LAUNCHES: process.env.LAUNCHES_URL || 'LAUNCHES URL NOT PROVIDED'
+}
 
 export const CREDENTIALS = {
 
@@ -18,4 +24,8 @@ export const CREDENTIALS = {
         PASSWORD: 'invalidPassword'
     },
     
-} 
+};
+
+export const LOGIN_EXPECTATIONS = {
+    BAD_CREDENTIALS: `An error occurred while connecting to server: You do not have enough permissions. Bad credentials`
+}

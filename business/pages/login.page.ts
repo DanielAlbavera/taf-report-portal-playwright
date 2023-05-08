@@ -1,9 +1,9 @@
 import { Page, Locator } from '@playwright/test';
-import { Base } from './base.page';
+import { BasePage } from './base.page';
 import { logger } from '../../utilities/logger';
 
 
-export class Login extends Base {
+export class LoginPage extends BasePage {
 
     readonly usernameInput: Locator;
     readonly passwordInput: Locator;
@@ -12,10 +12,10 @@ export class Login extends Base {
 
     constructor(page: Page) {
         super(page);
-        this.usernameInput = page.locator('[name = "login"]');
-        this.passwordInput = page.locator('[name = "password"]');
-        this.loginButton = page.locator('[type="submit"]');
-        this.badCredentialsMessage = page.locator('.notification-transition-enter-done p');
+        this.usernameInput = this.page.locator('[name = "login"]');
+        this.passwordInput = this.page.locator('[name = "password"]');
+        this.loginButton = this.page.locator('[type="submit"]');
+        this.badCredentialsMessage = this.page.locator('.notification-transition-enter-done p');
     }
 
     async fillUsername(username: string) {
