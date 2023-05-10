@@ -49,7 +49,8 @@ run the command:
 
 `npm run vitest`
 
-note: Vitest is more utilized for running tests while performing changes into the code.
+note: Vitest is more utilized for running tests while performing changes into the code. 
+To exit this continue running press q
 
 **parallelized:**
 
@@ -57,4 +58,14 @@ note: Vitest is more utilized for running tests while performing changes into th
 
 note: Right Now running parallelized tests with Vitest is unstable.
 
-To exit this continue running press q
+option 3: **Cucumber Test Runner**
+
+As a BDD alternative this project offers cucumber-js to run Features in a Gerkin syntax.
+
+run the command:
+
+`npm run cucumber`
+
+**parallelized:**
+
+`npm run cucumber:parallel`

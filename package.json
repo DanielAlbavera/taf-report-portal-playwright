@@ -7,6 +7,8 @@
     "test:parallel": "npx playwright test --config config/playwright.config.ts --workers=5",
     "vitest": "npx vitest --config config/vitest.config.ts",
     "vitest:parallel": "npx vitest --config config/vitest.config.ts --threads",
+    "cucumber": "npx cucumber-js --config config/cucumber.config.ts",
+    "cucumber:parallel": "npx cucumber-js --config config/cucumber.config.ts --parallel=5",
     "save:auth": "npx playwright codegen --save-storage=auth.json https://rp.epam.com/ui/"
   },
   "repository": {
@@ -21,8 +23,10 @@
   },
   "homepage": "https://github.com/DanielAlbavera/taf-report-portal-playwright#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^9.1.2",
     "@playwright/test": "^1.32.2",
     "dotenv": "^16.0.3",
+    "ts-node": "^10.9.1",
     "vitest": "^0.30.1",
     "winston": "^3.8.2"
   }
