@@ -1,5 +1,5 @@
 import { Given, When, Then, Before, After } from '@cucumber/cucumber';
-import { Locator, expect, chromium } from '@playwright/test';
+import { Locator, expect } from '@playwright/test';
 import { LoginPage } from '../../../business/pages/login.page';
 import { logger } from '../../../utilities/logger';
 import { URLS } from '../../../business/data/constants';
@@ -18,13 +18,6 @@ let qg: string | undefined;
 let duration: string | undefined;
 let owner: string | undefined;
 let total: string | undefined;
-let passed: string | undefined;
-let failed: string | undefined;
-let skipped: string | undefined;
-let production_bugs: string | undefined;
-let automation_bugs: string | undefined;
-let system_issues: string | undefined;
-let to_investigate: string | undefined;
 
 Before(async function () {
     pageFixture.page = await pageFixture.context.newPage();

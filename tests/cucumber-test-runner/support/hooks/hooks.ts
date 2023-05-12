@@ -1,4 +1,4 @@
-import { setDefaultTimeout, BeforeAll, AfterAll, After, AfterStep } from '@cucumber/cucumber';
+import { setDefaultTimeout, BeforeAll, BeforeStep, AfterAll, AfterStep,  } from '@cucumber/cucumber';
 import { chromium } from '@playwright/test';
 import { logger } from '../../../../utilities/logger';
 import { env } from '../../../../business/data/constants';
@@ -14,9 +14,14 @@ BeforeAll(async function () {
     });
 });
 
+BeforeStep(async function () {
+    logger.info('Step Start');
+});
+
 AfterStep( async function ({ pickle }) {
     const screenShot = await pageFixture.page.screenshot({ path: `test-results/screenshots/${pickle.name}.png`});
     this.attach(screenShot, 'image/png');
+    logger.info('Step Finish');
 });
 
 AfterAll(async function () {
