@@ -10,7 +10,6 @@ export class LaunchComponent extends Component{
     readonly burguerMenu: Object;
     readonly name: Locator;
     readonly renameButton: Locator;
-    readonly nameToolTip: Locator;
     readonly qualityGateLabel: Locator;
     readonly durationLabel: Locator;
     readonly launchHasRetries: Locator;

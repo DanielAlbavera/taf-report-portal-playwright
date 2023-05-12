@@ -1,5 +1,5 @@
-import { Given, When, Then, Before } from '@cucumber/cucumber';
-import { expect } from '@playwright/test';
+import { Given, When, Then, Before, After } from '@cucumber/cucumber';
+import { expect, chromium } from '@playwright/test';
 import { LoginPage } from '../../../business/pages/login.page';
 import { logger } from '../../../utilities/logger';
 import { URLS, CREDENTIALS, LOGIN_EXPECTATIONS } from '../../../business/data/constants';
@@ -8,9 +8,13 @@ import { pageFixture } from '../support/fixtures/page.fixture';
 let loginPage: LoginPage;
 
 Before(async function () {
-    pageFixture.context = await pageFixture.browser.newContext();
     pageFixture.page = await pageFixture.context.newPage();
     loginPage = new LoginPage(pageFixture.page); 
+});
+
+After( async function () {
+    await pageFixture.page.close();
+    logger.info('Page is closed');
 });
 
 Given('User navigates to the Login Page', async function () {

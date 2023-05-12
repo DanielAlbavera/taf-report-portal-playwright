@@ -17,6 +17,7 @@ module.exports = {
         ],
         format: [
             'html:test-results/cucumber-report.html'
-        ]
+        ],
+        parallel: 2
     }
 }
