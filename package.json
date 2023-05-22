@@ -7,6 +7,7 @@
     "test:parallel": "npx playwright test --config config/playwright.config.ts --workers=5",
     "vitest": "npx vitest --config config/vitest.config.ts",
     "vitest:api": "npx vitest --config config/vitest.config.ts api.spec",
+    "vitest:api-frisby": "npx vitest --config config/vitest.config.ts frisby.spec",
     "vitest:parallel": "npx vitest --config config/vitest.config.ts --threads",
     "cucumber": "npx cucumber-js --config config/cucumber.config.ts",
     "cucumber:parallel": "npx cucumber-js --config config/cucumber.config.ts --parallel=5",
@@ -26,8 +27,10 @@
   "devDependencies": {
     "@cucumber/cucumber": "^9.1.2",
     "@playwright/test": "^1.32.2",
+    "@types/frisby": "^2.0.14",
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
+    "frisby": "^2.1.3",
     "lodash": "^4.17.21",
     "ts-node": "^10.9.1",
     "vitest": "^0.30.1",
