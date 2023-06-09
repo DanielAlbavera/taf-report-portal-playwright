@@ -8,3 +8,5 @@ package-lock.json
 .scannerwork
 auth.json
 .vscode
+/cypress/videos
+/cypress/screenshots
