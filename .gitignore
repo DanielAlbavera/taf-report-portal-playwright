@@ -1,0 +1,12 @@
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+package-lock.json
+/logs/
+.env.*
+.scannerwork
+auth.json
+.vscode
+/cypress/videos
+/cypress/screenshots

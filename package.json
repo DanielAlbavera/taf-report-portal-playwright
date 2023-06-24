@@ -1,0 +1,42 @@
+{
+  "name": "taf-report-portal-playwright",
+  "version": "1.0.0",
+  "description": "Test Automation Framework for Automated Testing Global Mentoring Program - Advanced",
+  "scripts": {
+    "test": "npx playwright test --config config/playwright.config.ts",
+    "test:parallel": "npx playwright test --config config/playwright.config.ts --workers=5",
+    "vitest": "npx vitest --config config/vitest.config.ts",
+    "vitest:api": "npx vitest --config config/vitest.config.ts api.spec",
+    "vitest:api-frisby": "npx vitest --config config/vitest.config.ts frisby.spec",
+    "vitest:parallel": "npx vitest --config config/vitest.config.ts --threads",
+    "cucumber": "npx cucumber-js --config config/cucumber.config.ts",
+    "cucumber:parallel": "npx cucumber-js --config config/cucumber.config.ts --parallel=5",
+    "save:auth": "npx playwright codegen --save-storage=auth.json https://rp.epam.com/ui/",
+    "test:cy": "npx cypress run --config-file config/cypress.config.ts --spec 'cypress/'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielAlbavera/taf-report-portal-playwright.git"
+  },
+  "keywords": [],
+  "author": "Daniel Albavera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielAlbavera/taf-report-portal-playwright/issues"
+  },
+  "homepage": "https://github.com/DanielAlbavera/taf-report-portal-playwright#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.1.2",
+    "@playwright/test": "^1.32.2",
+    "@types/frisby": "^2.0.14",
+    "axios": "^1.4.0",
+    "cypress": "^12.14.0",
+    "dotenv": "^16.0.3",
+    "frisby": "^2.1.3",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3",
+    "vitest": "^0.30.1",
+    "winston": "^3.8.2"
+  }
+}
