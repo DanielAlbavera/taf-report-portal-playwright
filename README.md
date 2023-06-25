@@ -69,3 +69,5 @@ run the command:
 **parallelized:**
 
 `npm run cucumber:parallel`
+
+test
