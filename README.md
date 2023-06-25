@@ -70,4 +70,4 @@ run the command:
 
 `npm run cucumber:parallel`
 
-test
+test 2
