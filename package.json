@@ -12,7 +12,8 @@
     "cucumber": "npx cucumber-js --config config/cucumber.config.ts",
     "cucumber:parallel": "npx cucumber-js --config config/cucumber.config.ts --parallel=5",
     "save:auth": "npx playwright codegen --save-storage=auth.json https://rp.epam.com/ui/",
-    "test:cy": "npx cypress run --config-file config/cypress.config.ts --spec 'cypress/'"
+    "test:cy": "npx cypress run --config-file config/cypress.config.ts --spec 'cypress/'",
+    "test:ci": "npx playwright test --config config/playwright.config.ts playwright-test-runner/login.spec"
   },
   "repository": {
     "type": "git",
