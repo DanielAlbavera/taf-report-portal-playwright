@@ -26,9 +26,9 @@
     "url": "https://github.com/DanielAlbavera/taf-report-portal-playwright/issues"
   },
   "homepage": "https://github.com/DanielAlbavera/taf-report-portal-playwright#readme",
-  "dependencies": {
+  "dependencies ": {
     "@cucumber/cucumber": "^9.1.2",
-    "@playwright/test": "^1.35.1",
+    "@playwright/test": "1.34.0",
     "@types/frisby": "^2.0.14",
     "axios": "^1.4.0",
     "cypress": "^12.14.0",
